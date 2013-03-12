@@ -1,7 +1,11 @@
 ZMQC++
 ----------
 
-ZMQC++ (ZMQCpp) is a C++ wrapper of the ZeroMQ messaging library
+ZMQC++ (ZMQCpp) is a smart and easy to use C++ wrapper of the ZeroMQ messaging library.
+
+See ZMQC++ website http://srombauts.github.com/ZMQCpp on GitHub.
+
+Keywords: ZeroMQ, ØMQ, ZMQ, C, library, wrapper C++
 
 ### About ZeroMQ:
 
