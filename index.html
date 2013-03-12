@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Zmqcpp : ZMQC++ (ZMQCpp) is a thin C++ wrapper around the ØMQ messaging library." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Zmqcpp</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/SRombauts/ZMQCpp">View on GitHub</a>
+
+          <h1 id="project_title">Zmqcpp</h1>
+          <h2 id="project_tagline">ZMQC++ (ZMQCpp) is a thin C++ wrapper around the ØMQ messaging library.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/SRombauts/ZMQCpp/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/SRombauts/ZMQCpp/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>About ZeroMQ:</h3>
+
+<p>The socket library that acts as a concurrency framework.
+Carries messages across inproc, IPC, TCP, and multicast.
+Asynch I/O for scalable multicore message-passing apps.
+LGPL free software with static linking exception.
+<a href="http://www.zeromq.org/">http://www.zeromq.org/</a></p>
+
+<h3>About ZMQC++:</h3>
+
+<p>ZMQC++ offers an encapsulation arround the native C APIs of libzmq,
+with a few intuitive and well documented C++ class.</p>
+
+<h3>The goals of ZMQC++ are:</h3>
+
+<ul>
+<li>to offer the best of existing simple C++ libzmq wrappers</li>
+<li>to be elegantly written with good C++ design, STL, exceptions and RAII idiom</li>
+<li>to keep dependencies to a minimum (STL and libzmq, optionnal Boost)</li>
+<li>to be portable</li>
+<li>to be light and fast</li>
+<li>to be thread-safe</li>
+<li>to have a good unit test coverage</li>
+<li>to use API names sticking with those of the zmq library (except frame vs message for multi-part message)</li>
+<li>to be well documented with Doxygen tags, and with some good examples</li>
+<li>to be well maintained</li>
+<li>to use a permissive MIT license, similar to BSD or Boost, for proprietary/commercial usage</li>
+</ul><p>It is designed using the Resource Acquisition Is Initialization (RAII) idom
+(see <a href="http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization</a>),
+and throwing exceptions in case of ZeroMQ errors (exept in destructors,
+where assert() are used instead).
+Each ZMQC++ object must be constructed with a valid ZeroMQ context or socket,
+and then is always valid until destroyed.</p>
+
+<h3> Suported platforms:</h3>
+
+<p>Developements and tests are done under the following OSs :</p>
+
+<ul>
+<li>Debian 7 (testing)</li>
+<li>Ubuntu 12.10</li>
+<li>Windows XP/7/8
+And following IDEs/Compilers</li>
+<li>GCC 4.7.x with a provided Makefile</li>
+<li>Eclipse CDT under Linux, using the provided Makefile</li>
+<li>Visual Studio Express 2008/2010/2012 for testing compatibility purpose</li>
+</ul><h3>Dependencies:</h3>
+
+<ul>
+<li>a STL implementation (even an old one, like those provided with VC6/eVC4 should work)</li>
+<li>exception support (the class Exception inherit from std::runtime_error)</li>
+<li>the zmq library, either by linking to it dynamicaly or staticaly (libzmq-dev under Linux).</li>
+</ul><h3>Installation</h3>
+
+<p>To use this wrappers, you need to add the ZMQC++ source files from the src/ directory
+in your project code base, and compile/link against the zmq library.</p>
+
+<h3>License</h3>
+
+<p>Copyright (c) 2013 Sébastien Rombauts (<a href="mailto:sebastien.rombauts@gmail.com">sebastien.rombauts@gmail.com</a>)</p>
+
+<p>Distributed under the MIT License (MIT) (See accompanying file LICENSE.txt
+or copy at <a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>)</p>
+
+<h2>Getting started</h2>
+
+<h3>First sample demonstrates how to initialize a context, create a socket and bind/connect it:</h3>
+
+<div class="highlight"><pre><span class="c1">// TODO</span>
+</pre></div>
+
+<h2>How to contribute</h2>
+
+<h3>GitHub website</h3>
+
+<p>The most efficient way to help and contribute to this wrapper project is to
+use the tools provided by GitHub:</p>
+
+<ul>
+<li>please fill bug reports and feature requests here: <a href="https://github.com/SRombauts/ZMQCpp/issues">https://github.com/SRombauts/ZMQCpp/issues</a>
+</li>
+<li>fork the repository, make some small changes and submit them with pull-request</li>
+</ul><h3>Contact</h3>
+
+<p>You can also email me directly, I will answer any questions and requests.</p>
+
+<h3>Coding Style Guidelines</h3>
+
+<p>The source code use the CamelCase naming style variant where :</p>
+
+<ul>
+<li>type names (class, struct, typedef, enums...) begins with a capital letter</li>
+<li>files (.cpp/.h) are named like the class they contains</li>
+<li>function and variable names begins with a lower case letter</li>
+<li>member variables begins with a 'm', function arguments begins with a 'a', boolean with a 'b', pointers with a 'p'</li>
+<li>each file, class, method and member variable is documented using Doxygen tags
+See also <a href="http://www.appinf.com/download/CppCodingStyleGuide.pdf">http://www.appinf.com/download/CppCodingStyleGuide.pdf</a> for good guidelines</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Zmqcpp maintained by <a href="https://github.com/SRombauts">SRombauts</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
