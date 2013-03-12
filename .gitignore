@@ -1,0 +1,13 @@
+Debug
+Release
+
+*.ncb
+*.suo
+*.user
+*sdf
+*ipch
+*~
+
+lib
+doc
+core
