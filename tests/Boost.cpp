@@ -10,7 +10,7 @@
 #define BOOST_TEST_MODULE ZMQCpp
 #include <boost/test/included/unit_test.hpp>
 
-#include "../src/context.hpp"
+#include "../src/Context.hpp"
 
 BOOST_AUTO_TEST_CASE (context_test_case)
 {
