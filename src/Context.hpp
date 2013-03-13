@@ -10,7 +10,7 @@
 #pragma once
 
 
-#include "zmq.h"
+#include <zmq.h>
 
 
 // Compatibility defines
@@ -41,15 +41,23 @@
 
 
 /**
- * @brief The Context manage all ZeroMQ sockets of an application.
+ * @brief The Context manage ZeroMQ sockets of an application.
  *
- * TODO A ØMQ context is thread safe and may be shared among as many application threads as necessary,
- *      without any additional locking required on the part of the caller.
+ * @todo This Context maintain a list of all open socket.
+ *       Upon its destruction, it shall close them, in a non blocking fashion.
+ *
+ * @todo The underliying ØMQ context is thread safe and may be shared among as many application threads as necessary,
+ *       without any additional locking required on the part of the caller,
+ *       but this Context is NOT thread-safe !
  */
 class Context
 {
+    friend class Socket;
+
 public:
-    /// @brief Default constructor
+    /**
+     * @brief Constructor of a new ØMQ context with zmq_new().
+     */
     Context(void) :
         mpContext(NULL)
     {
@@ -63,7 +71,13 @@ public:
             throw std::runtime_error(zmq_strerror(zmq_errno()));
         }
     }
-    /// @brief Destructor
+    /**
+     * @brief Destructor shall destroy the ØMQ context context.
+     *
+     * @todo will close any
+     *
+     * @see http://api.zeromq.org/3-2:zmq-ctx-destroy
+     */
     ~Context(void)
     {
         int ret = zmq_ctx_destroy(mpContext);
