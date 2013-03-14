@@ -7,10 +7,10 @@
  * Distributed under the MIT License (MIT) (See accompanying file LICENSE.txt
  * or copy at http://opensource.org/licenses/MIT)
  */
+#include "../src/Context.hpp"
+
 #define BOOST_TEST_MODULE ZMQCpp
 #include <boost/test/included/unit_test.hpp>
-
-#include "../src/Context.hpp"
 
 BOOST_AUTO_TEST_CASE (context_test_case)
 {

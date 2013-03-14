@@ -9,9 +9,10 @@
  */
 #pragma once
 
-
 #include <zmq.h>
 
+// TODO : move into an Exception.hpp file
+#include <stdexcept>
 
 // Compatibility defines
 // TODO : move those defines in a central ZMQCpp.hpp include file
@@ -64,7 +65,7 @@ public:
 #if (ZMQ_VERSION_MAJOR < 3)
         mpContext = zmq_init(ZMQ_IO_THREADS_DFLT);
 #else
-        mpContext = zmq_new();
+        mpContext = zmq_ctx_new();
 #endif
         if (mpContext == NULL)
         {
