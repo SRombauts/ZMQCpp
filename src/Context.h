@@ -1,5 +1,5 @@
 /**
- * @file    Context.hpp
+ * @file    Context.h
  * @brief   The Context manage all ZeroMQ sockets of an application.
  * @ingroup ZMQCpp
  *
