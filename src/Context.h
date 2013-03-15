@@ -1,6 +1,7 @@
 /**
- * @file  Context.hpp
- * @brief The Context manage all ZeroMQ sockets of an application.
+ * @file    Context.hpp
+ * @brief   The Context manage all ZeroMQ sockets of an application.
+ * @ingroup ZMQC++
  *
  * Copyright (c) 2013 Sebastien Rombauts (sebastien.rombauts@gmail.com)
  *
@@ -11,35 +12,12 @@
 
 #include <zmq.h>
 
-// TODO : move into an Exception.hpp file
-#include <stdexcept>
-
-// Compatibility defines
-// TODO : move those defines in a central ZMQCpp.hpp include file
-#ifndef ZMQ_DONTWAIT
-#   define ZMQ_DONTWAIT   ZMQ_NOBLOCK
-#endif
-#ifndef ZMQ_RCVHWM
-#   define ZMQ_RCVHWM     ZMQ_HWM
-#endif
-#ifndef ZMQ_SNDHWM
-#   define ZMQ_SNDHWM     ZMQ_HWM
-#endif
-#if ZMQ_VERSION_MAJOR == 2
-#   define more_t int64_t
-#   define zmq_ctx_destroy(context) zmq_term(context)
-#   define zmq_msg_send(msg,sock,opt) zmq_send (sock, msg, opt)
-#   define zmq_msg_recv(msg,sock,opt) zmq_recv (sock, msg, opt)
-#   define ZMQ_POLL_MSEC    1000        //  zmq_poll is usec
-#elif ZMQ_VERSION_MAJOR == 3
-#   define more_t int
-#   define ZMQ_POLL_MSEC    1           //  zmq_poll is msec
-#endif
-#ifndef ZMQ_IO_THREADS_DFLT
-#   define ZMQ_IO_THREADS_DFLT  1
-#endif
+#include "Exception.h"
+#include "Utils.h"
 
 
+namespace ZMQ
+{
 
 /**
  * @brief The Context manage ZeroMQ sockets of an application.
@@ -47,7 +25,7 @@
  * @todo This Context maintain a list of all open socket.
  *       Upon its destruction, it shall close them, in a non blocking fashion.
  *
- * @todo The underliying ØMQ context is thread safe and may be shared among as many application threads as necessary,
+ * @todo The underlying ØMQ context is thread safe and may be shared among as many application threads as necessary,
  *       without any additional locking required on the part of the caller,
  *       but this Context is NOT thread-safe !
  */
@@ -67,9 +45,9 @@ public:
 #else
         mpContext = zmq_ctx_new();
 #endif
-        if (mpContext == NULL)
+        if (NULL == mpContext)
         {
-            throw std::runtime_error(zmq_strerror(zmq_errno()));
+            throw Exception(zmq_strerror(zmq_errno()));
         }
     }
     /**
@@ -82,16 +60,19 @@ public:
     ~Context(void)
     {
         int ret = zmq_ctx_destroy(mpContext);
-        check(ret);
+        ZMQ_CPP_ASSERT(0 == ret);
     }
 private:
     void check(int aRet)
     {
-        if (aRet < 0)
+        if (0 > aRet)
         {
-            throw std::runtime_error(zmq_strerror(zmq_errno()));
+            throw Exception(zmq_strerror(zmq_errno()));
         }
     }
 
     void* mpContext;
 };
+
+
+}   // namespace ZMQ
