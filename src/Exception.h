@@ -1,7 +1,7 @@
 /**
  * @file    Exception.h
  * @brief   Encapsulation of the error message from libzmq on a std::runtime_error.
- * @ingroup ZMQC++
+ * @ingroup ZMQCpp
  *
  * Copyright (c) 2012-2013 Sebastien Rombauts (sebastien.rombauts@gmail.com)
  *
