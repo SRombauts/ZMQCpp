@@ -1,6 +1,6 @@
 /**
  * @file    Utils.h
- * @brief   Useful defines and tools, included by many other include files.
+ * @brief   Useful defines and tools, included by any source file of ZMQC++.
  * @ingroup ZMQCpp
  *
  * Copyright (c) 2013 Sebastien Rombauts (sebastien.rombauts@gmail.com)

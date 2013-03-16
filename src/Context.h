@@ -10,11 +10,6 @@
  */
 #pragma once
 
-#include <zmq.h>
-
-#include "Exception.h"
-#include "Utils.h"
-
 
 namespace ZMQ
 {
@@ -37,40 +32,26 @@ public:
     /**
      * @brief Constructor of a new ØMQ context with zmq_new().
      */
-    Context(void) :
-        mpContext(NULL)
-    {
-#if (ZMQ_VERSION_MAJOR < 3)
-        mpContext = zmq_init(ZMQ_IO_THREADS_DFLT);
-#else
-        mpContext = zmq_ctx_new();
-#endif
-        if (NULL == mpContext)
-        {
-            throw Exception(zmq_strerror(zmq_errno()));
-        }
-    }
+    Context(void);
+
     /**
      * @brief Destructor shall destroy the ØMQ context context.
      *
-     * @todo will close any
+     * @todo must close any socket still open
      *
      * @see http://api.zeromq.org/3-2:zmq-ctx-destroy
      */
-    ~Context(void)
-    {
-        int ret = zmq_ctx_destroy(mpContext);
-        ZMQ_CPP_ASSERT(0 == ret);
-    }
-private:
-    void check(int aRet)
-    {
-        if (0 > aRet)
-        {
-            throw Exception(zmq_strerror(zmq_errno()));
-        }
-    }
+    ~Context(void);
 
+private:
+    /**
+     * @brief Check a ZeroMQ return code : must be nul ou positive.
+     *
+     * @param[in] aRet A ZeroMQ return code
+     */
+    void check(int aRet);
+
+private:
     void* mpContext;
 };
 

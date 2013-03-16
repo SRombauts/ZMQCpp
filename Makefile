@@ -32,6 +32,7 @@ CPPDEPS = -MT $@ -MF`echo $@ | sed -e 's,\.o$$,.d,'` -MD -MP
 ZMQCPP_CXXFLAGS = $(BUILD_FLAGS) $(CXXFLAGS)
 ZMQCPP_TESTS_OBJECTS =  \
 	$(BUILD)/Boost.o \
+	$(BUILD)/Context.o \
 	
 ### Targets: ###
 
@@ -51,6 +52,9 @@ $(BUILD)/tests: $(ZMQCPP_TESTS_OBJECTS)
 
 
 $(BUILD)/Boost.o: tests/Boost.cpp
+	$(CXX) -c -o $@ $(ZMQCPP_CXXFLAGS) $(CPPDEPS) $<
+
+$(BUILD)/Context.o: tests/Context.cpp
 	$(CXX) -c -o $@ $(ZMQCPP_CXXFLAGS) $(CPPDEPS) $<
 
 

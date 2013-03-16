@@ -10,6 +10,9 @@
  */
 #pragma once
 
+/// @remark : under Windows, needs to be defined before any other system include file
+#include <zmq.h>
+
 #include <stdexcept>
 #include <cassert>
 
