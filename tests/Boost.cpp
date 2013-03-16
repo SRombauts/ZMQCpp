@@ -1,7 +1,7 @@
 /**
  * @file    Boost.hpp
- * @brief   Boost Unit Tests of this ZMQ C++ wrapper
  * @ingroup ZMQCpp
+ * @brief   Boost Unit Tests of this ZMQ C++ wrapper
  *
  * Copyright (c) 2013 Sebastien Rombauts (sebastien.rombauts@gmail.com)
  *

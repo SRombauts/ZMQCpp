@@ -1,7 +1,7 @@
 /**
  * @file    ZMQCpp.h
- * @brief   ZMQC++ (ZMQCpp) is a smart and easy to use C++ wrapper of the ZeroMQ messaging library.
  * @ingroup ZMQCpp
+ * @brief   ZMQC++ (ZMQCpp) is a smart and easy to use C++ wrapper of the ZeroMQ messaging library.
  *
  * Include this main header file in your project to gain access to all functionality provided by the wrapper.
  *

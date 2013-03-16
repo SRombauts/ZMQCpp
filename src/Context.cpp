@@ -1,7 +1,7 @@
 /**
  * @file    Context.cpp
- * @brief   The Context manage all ZeroMQ sockets of an application.
  * @ingroup ZMQCpp
+ * @brief   The Context manage all ZeroMQ sockets of an application.
  *
  * Copyright (c) 2013 Sebastien Rombauts (sebastien.rombauts@gmail.com)
  *
