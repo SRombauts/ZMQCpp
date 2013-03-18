@@ -23,6 +23,7 @@
 // Include useful headers of ZMQC++
 #include "Exception.h"
 #include "Context.h"
+#include "Socket.h"
 
 
 /**
