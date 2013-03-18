@@ -8,8 +8,6 @@
  * Distributed under the MIT License (MIT) (See accompanying file LICENSE.txt
  * or copy at http://opensource.org/licenses/MIT)
  */
-#pragma once
-
 #include "Utils.h"  // libzmq "zmq.h" include file
 #include "Context.h"
 #include "Exception.h"
@@ -18,7 +16,7 @@
 namespace ZMQ
 {
 
-// Constructor of a new ØMQ context with zmq_new().
+// Constructor of a new ØMQ context with zmq_ctx_new().
 Context::Context(void) :
     mpContext(NULL)
 {
@@ -33,20 +31,11 @@ Context::Context(void) :
     }
 }
 
-// Destructor shall destroy the ØMQ context context.
+// Destructor shall destroy the ØMQ context with zmq_ctx_destroy().
 Context::~Context(void)
 {
     int ret = zmq_ctx_destroy(mpContext);
     ZMQ_CPP_ASSERT(0 == ret);
-}
-
-// Check a ZeroMQ return code : must be nul ou positive.
-void check(int aRet)
-{
-    if (0 > aRet)
-    {
-        throw Exception(zmq_strerror(zmq_errno()));
-    }
 }
 
 

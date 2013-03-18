@@ -33,6 +33,7 @@ ZMQCPP_CXXFLAGS = $(BUILD_FLAGS) $(CXXFLAGS)
 ZMQCPP_TESTS_OBJECTS =  \
 	$(BUILD)/Boost.o \
 	$(BUILD)/Context.o \
+	$(BUILD)/Socket.o \
 	
 ### Targets: ###
 
@@ -55,6 +56,9 @@ $(BUILD)/Boost.o: tests/Boost.cpp
 	$(CXX) -c -o $@ $(ZMQCPP_CXXFLAGS) $(CPPDEPS) $<
 
 $(BUILD)/Context.o: src/Context.cpp
+	$(CXX) -c -o $@ $(ZMQCPP_CXXFLAGS) $(CPPDEPS) $<
+
+$(BUILD)/Socket.o: src/Socket.cpp
 	$(CXX) -c -o $@ $(ZMQCPP_CXXFLAGS) $(CPPDEPS) $<
 
 

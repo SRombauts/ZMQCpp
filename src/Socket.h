@@ -21,16 +21,16 @@ class Socket
 {
 public:
     /**
-     * @brief Constructor of a new ØMQ socekt with zmq_().
+     * @brief Constructor of a new ØMQ socket with zmq_socket().
+     *
+     * @see http://api.zeromq.org/3-2:zmq_socket
      */
     Socket(void);
 
     /**
-     * @brief Destructor shall destroy the ØMQ socket.
+     * @brief Destructor shall destroy the ØMQ socket with zmq_close().
      *
-     * @todo must close any socket still open
-     *
-     * @see http://api.zeromq.org/3-2:zmq-ctx-destroy
+     * @see http://api.zeromq.org/3-2:zmq_close
      */
     ~Socket(void);
 
@@ -43,7 +43,7 @@ private:
     void check(int aRet);
 
 private:
-    void* mpContext;
+    void* mpSocket; //!< The underlying ØMQ socket
 };
 
 

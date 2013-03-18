@@ -8,8 +8,6 @@
  * Distributed under the MIT License (MIT) (See accompanying file LICENSE.txt
  * or copy at http://opensource.org/licenses/MIT)
  */
-#pragma once
-
 #include "Utils.h"  // libzmq "zmq.h" include file
 #include "Socket.h"
 #include "Exception.h"
@@ -18,18 +16,19 @@
 namespace ZMQ
 {
 
-// Constructor of a new ØMQ socket with zmq_().
-Socket::Socket(void)
+// Constructor of a new ØMQ socket with zmq_socket().
+Socket::Socket(void) :
+    mpSocket(NULL)
 {
 }
 
-// Destructor shall destroy the ØMQ socket.
-Context::~Context(void)
+// Destructor shall destroy the ØMQ socket with zmq_close().
+Socket::~Socket(void)
 {
 }
 
 // Check a ZeroMQ return code : must be nul ou positive.
-void check(int aRet)
+void Socket::check(int aRet)
 {
     if (0 > aRet)
     {

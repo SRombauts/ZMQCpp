@@ -30,26 +30,20 @@ class Context
 
 public:
     /**
-     * @brief Constructor of a new ØMQ context with zmq_new().
+     * @brief Constructor of a new ØMQ context with zmq_ctx_new().
+     *
+     * @see http://api.zeromq.org/3-2:zmq_ctx_new
      */
     Context(void);
 
     /**
-     * @brief Destructor shall destroy the ØMQ context context.
+     * @brief Destructor shall destroy the ØMQ context with zmq_ctx_destroy().
      *
      * @todo must close any socket still open
      *
      * @see http://api.zeromq.org/3-2:zmq-ctx-destroy
      */
     ~Context(void);
-
-private:
-    /**
-     * @brief Check a ZeroMQ return code : must be nul ou positive.
-     *
-     * @param[in] aRet A ZeroMQ return code
-     */
-    void check(int aRet);
 
 private:
     void* mpContext;
