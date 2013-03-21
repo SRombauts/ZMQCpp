@@ -29,8 +29,8 @@
 /**
  * @brief Version numbers for ZMQC++
  *
- * The [ZMQCPP_VERSION] C preprocessor macro in the SQLiteC++.h header
- * evaluates to a string literal that is the SQLite version in the
+ * The [ZMQCPP_VERSION] C preprocessor macro in the ZMQCpp.h header
+ * evaluates to a string literal that is the ZMQC++ version in the
  * format "X.Y.Z" where X is the major version number
  * and Y is the minor version number and Z is the release number.
  *
@@ -39,4 +39,4 @@
  * numbers used in [ZMQCPP_VERSION].
  */
 #define ZMQCPP_VERSION              "0.0.0"
-#define ZMQCPP_VERSION_NUMBER       0005000
+#define ZMQCPP_VERSION_NUMBER       0000000
